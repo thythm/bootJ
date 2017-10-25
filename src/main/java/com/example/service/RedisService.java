@@ -3,7 +3,6 @@ package com.example.service;
 import com.alibaba.fastjson.JSONObject;
 import com.example.annotation.Valid;
 import com.example.util.Assert;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -70,15 +69,17 @@ public class RedisService {
     }
 
     public void preCheck(String key, String value){
-        Assert.isTure(StringUtils.isNotBlank(key)&&StringUtils.isNotBlank(value), "key和value不能为空！");
+        Assert.notBlank(key, "key不能为空！");
+        Assert.notBlank(value, "value不能为空！");
     }
 
     public void preCheck(String key, Object obj){
-        Assert.isTure(StringUtils.isNotBlank(key)&&obj!=null, "key和value不能为空！");
+        Assert.notBlank(key, "key不能为空！");
+        Assert.notNull(obj, "value不能为空！");
     }
 
     public void checkCountDown(int countDown){
-        Assert.isTure(countDown > 0, "使用该方法必须设置key的存活时间！");
+        Assert.isTrue(countDown > 0, "使用该方法必须设置key的存活时间！");
     }
 
 }

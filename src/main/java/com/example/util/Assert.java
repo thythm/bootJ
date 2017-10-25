@@ -1,6 +1,7 @@
 package com.example.util;
 
 import com.example.execption.MMException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author majunjie
@@ -9,9 +10,25 @@ import com.example.execption.MMException;
  */
 public class Assert {
 
-    public static void isTure(boolean result, String title){
+    public static void isTrue(boolean result, String title){
 
         if (!result) {
+            throw new MMException(title);
+        }
+
+    }
+
+    public static void notBlank(String str, String title){
+
+        if (StringUtils.isBlank(str)) {
+            throw new MMException(title);
+        }
+
+    }
+
+    public static void notNull(Object obj, String title){
+
+        if (obj==null) {
             throw new MMException(title);
         }
 
