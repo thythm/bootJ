@@ -1,26 +1,6 @@
 spring:
-  datasource:
-    username: root
-    password: a+rquQe5KMGKKkmFJkl0
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 5
-    url: jdbc:mysql://192.168.0.248/jifen?useUnicode=true&characterEncoding=UTF-8
-    minIdle: 5
-    maxActive: 20
-
-  redis:
-    host: 192.168.0.248
-    port: 10000
-    password: acGrfP9omb1EGMzCUazC
-    pool:
-      max-active: 8
-      max-idle: 8
-      min-idle: 0
-    timeout: 5000
-    database: 0
-
-server:
-  port: 80
+  profiles:
+    active: dev
+#    active: @profilesActive@
 
 

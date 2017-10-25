@@ -117,5 +117,25 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profilesActive>dev</profilesActive>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profilesActive>prod</profilesActive>
+			</properties>
+		</profile>
+
+
+	</profiles>
+
 
 </project>

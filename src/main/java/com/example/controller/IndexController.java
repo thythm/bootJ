@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2017/10/24 11:56
  */
 @RestController
-public class TestController {
+public class IndexController {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(TestController.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
     private RegisterPublisher registerPublisher;

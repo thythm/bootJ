@@ -2,6 +2,7 @@ package com.example.core;
 
 import com.example.Thread.ThreadPoolManager;
 import com.example.mq.PhoneMessageCustomer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -15,7 +16,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationStartup implements ApplicationListener<ContextRefreshedEvent> {
 
+    /**
+     * 可能会出现手动获取Spring容器bean对象的情况，所以这里保存一个spring容器上下文
+     */
     public static ApplicationContext context;
+
+    @Autowired
+    private PhoneMessageCustomer messageCustomer;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -25,11 +32,10 @@ public class ApplicationStartup implements ApplicationListener<ContextRefreshedE
 
     public void init(){
 
-        //
-        ThreadPoolManager.pool.execute( () -> {
-            PhoneMessageCustomer customer = context.getBean(PhoneMessageCustomer.class);
-            customer.pull();
-        });
+        /**
+         * 启动发送短信队列的线程
+         */
+        ThreadPoolManager.pool.execute( () -> messageCustomer.pull() );
 
     }
 
