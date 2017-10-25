@@ -1,4 +1,6 @@
-package com.example.core;
+package com.example.util;
+
+import com.example.execption.MMException;
 
 /**
  * @author majunjie

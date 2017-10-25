@@ -1,4 +1,4 @@
-package com.example.core;
+package com.example.execption;
 
 /**
  * @author majunjie
