@@ -1,5 +1,6 @@
 package com.example.aspect;
 
+import com.example.annotation.Valid;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -27,11 +28,13 @@ public class AutoValid {
 
     private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
-    @Before("anyMethod()")
-//    @Before("@annotation(com.example.annotation.Valid)")
-    public void pre(JoinPoint point){
+//    @Before("anyMethod()")
+    @Before("@annotation(valid)")
+    public void pre(JoinPoint point, Valid valid){
 
-        MethodSignature signature = (MethodSignature) point.getSignature();
+        System.out.println(valid.value());
+
+        /*MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
 //        System.out.println(method.getName());
         Parameter[] parameters = method.getParameters();
@@ -45,7 +48,7 @@ public class AutoValid {
 
 
             }
-        }
+        }*/
     }
 
 }

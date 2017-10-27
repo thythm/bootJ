@@ -12,4 +12,6 @@ import java.lang.annotation.*;
 @Documented
 public @interface Valid {
 
+    String value() default "";
+
 }

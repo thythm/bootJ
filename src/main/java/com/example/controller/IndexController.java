@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.annotation.Valid;
 import com.example.bean.entity.User;
 import com.example.mq.RegisterPublisher;
 import org.slf4j.Logger;
@@ -22,14 +23,12 @@ public class IndexController {
     private RegisterPublisher registerPublisher;
 
     @RequestMapping
+    @Valid("呵呵")
     public String test(String name) {
 
         System.out.println(Thread.currentThread().getName() + "success into test(), param=" + name);
 
-        User user = new User();
-        user.setName(name);
-
-        registerPublisher.publish(user);
+//        registerPublisher.publish(user);
 
         return name;
     }
