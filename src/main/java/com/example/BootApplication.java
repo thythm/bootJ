@@ -6,15 +6,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-
+//@EnableEurekaServer//发现服务
 @SpringBootApplication
-public class DemoApplication {
+public class BootApplication {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(BootApplication.class);
 
 	public static void main(String[] args) throws Exception{
 
-		ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
+		ApplicationContext ctx = SpringApplication.run(BootApplication.class, args);
+		System.out.println();
 
 	}
 
