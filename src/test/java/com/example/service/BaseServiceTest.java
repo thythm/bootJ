@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.DemoApplication;
+import com.example.BootApplication;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2017/10/25 12:14
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = { DemoApplication.class })
+@SpringBootTest(classes = { BootApplication.class })
 public class BaseServiceTest<S> {
 
     @Autowired

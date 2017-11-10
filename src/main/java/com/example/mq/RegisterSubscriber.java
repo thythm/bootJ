@@ -31,12 +31,12 @@ public class RegisterSubscriber {
         User user = JSONObject.parseObject(message, User.class);
         LOGGER.info(Thread.currentThread().getName() + "注册订阅一 <" + user + ">");
 
-        PhoneMessage phoneMessage = new PhoneMessage();
+        /*PhoneMessage phoneMessage = new PhoneMessage();
         phoneMessage.setPhone(StringUtils.isBlank(user.getPhone())? "13777844021":user.getPhone());
         phoneMessage.setTitle("注册");
         phoneMessage.setContent("欢迎您加入momo");
 
-        redisService.lpush(QueueAndTopic.QUEUE_PHONE_MESSAGE, phoneMessage);
+        redisService.lpush(QueueAndTopic.QUEUE_PHONE_MESSAGE, phoneMessage);*/
     }
 
     /**

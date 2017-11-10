@@ -6,6 +6,7 @@ import com.example.mq.RegisterPublisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,15 +23,18 @@ public class IndexController {
     @Autowired
     private RegisterPublisher registerPublisher;
 
-    @RequestMapping
+    @RequestMapping(value = "/{name}")
     @Valid("呵呵")
-    public String test(String name) {
+    public String test(@PathVariable("name") String name) {
 
         System.out.println(Thread.currentThread().getName() + "success into test(), param=" + name);
 
+//        User user = new User();
+//        user.setName(name);
+
 //        registerPublisher.publish(user);
 
-        return name;
+        return "hello " + name;
     }
 
 }

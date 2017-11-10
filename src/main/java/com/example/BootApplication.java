@@ -15,7 +15,7 @@ public class BootApplication {
 	public static void main(String[] args) throws Exception{
 
 		ApplicationContext ctx = SpringApplication.run(BootApplication.class, args);
-		System.out.println();
+		System.out.println("");
 
 	}
 
