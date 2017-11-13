@@ -1,9 +1,6 @@
 package com.example.util;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
 import java.io.File;
@@ -18,8 +15,9 @@ public class PDFUtil {
 
     static Font font;
 
-    public static final String SRC = "C:\\Users\\PC\\Desktop\\pdf\\hello.pdf";
+    public static final String SRC = "C:\\Users\\PC\\Desktop\\pdf\\helloWorld.pdf";
     public static final String DEST = "C:\\Users\\PC\\Desktop\\pdf\\hello_highlighted.pdf";
+    public static final String img = "C:\\Users\\PC\\Desktop\\123.jpg";
 
     public static void main(String[] args) throws Exception {
         File file = new File(DEST);
@@ -33,21 +31,28 @@ public class PDFUtil {
         PdfReader reader = new PdfReader(src);
         PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(dest));
         PdfContentByte canvas = stamper.getOverContent(1);
-        canvas.saveState();
-        canvas.setColorFill(BaseColor.WHITE);
-        canvas.rectangle(36, 786, 66, 16);
+
+        Image image = Image.getInstance(img);
+
+        image.setAbsolutePosition(50, 50);
+
+        canvas.addImage(image);
+
+        /*canvas.saveState();
+        canvas.setColorFill(BaseColor.YELLOW);
+        //左顶点，宽度、高度
+        canvas.rectangle(36, 758, 66, 16);
         canvas.fill();
         canvas.restoreState();
-
         //开始写入文本
         canvas.beginText();
-
         //设置字体和大小
         canvas.setFontAndSize(font.getBaseFont(), 10);
         //设置字体的输出位置
-        canvas.setTextMatrix(36, 786);
+        canvas.setTextMatrix(36, 758);
         //要输出的text
-        canvas.showText("多退少补" );
+        canvas.showText("多退少补" );*/
+
         stamper.close();
         reader.close();
     }
@@ -60,6 +65,7 @@ public class PDFUtil {
             document.add(new Paragraph("test"));
             document.add(new Paragraph("甲方：比尔盖茨", font));
             document.add(new Paragraph("乙方：乔布斯", font));
+            document.add(new Paragraph("手机：13777844021", font));
             document.close();
             writer.close();
         } catch (Exception e) {
