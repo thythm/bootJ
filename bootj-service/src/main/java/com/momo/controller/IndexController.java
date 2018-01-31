@@ -2,6 +2,7 @@ package com.momo.controller;
 
 import com.momo.goods.service.IGoodsBrandService;
 import com.momo.mq.RegisterPublisher;
+import com.momo.service.FeignApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class IndexController {
     IGoodsBrandService goodsBrandService;
     @Autowired
     private RegisterPublisher registerPublisher;
+    @Autowired
+    private FeignApi api;
 
     @Value("${luckyWords}")
     private String luckyWords;
@@ -49,6 +52,11 @@ public class IndexController {
     @RequestMapping(value = "/luckyWords")
     public Object luckyWords() {
         return luckyWords;
+    }
+
+    @RequestMapping(value = "/feign")
+    public Object feign() {
+        return api.name();
     }
 
 }

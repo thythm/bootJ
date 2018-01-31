@@ -1,0 +1,17 @@
+server:
+  port: 8883
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZonehttp: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: base-api
+
+
+
+
+
+
