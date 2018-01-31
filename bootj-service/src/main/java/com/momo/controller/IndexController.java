@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  * @date 2017/10/24 11:56
  */
+@RefreshScope
 @RestController
 public class IndexController {
 
@@ -31,7 +33,7 @@ public class IndexController {
     @Value("${luckyWords}")
     private String luckyWords;
 
-    @RequestMapping(value = "/{name}")
+  /*  @RequestMapping(value = "/{name}")
     public String test(@PathVariable("name") String name) {
 
         System.out.println(Thread.currentThread().getName() + "success into test(), param=" + name);
@@ -42,7 +44,7 @@ public class IndexController {
 //        registerPublisher.publish(user);
 
         return "hello " + name;
-    }
+    }*/
 
     @RequestMapping(value = "/ttt")
     public Object aaa() {
