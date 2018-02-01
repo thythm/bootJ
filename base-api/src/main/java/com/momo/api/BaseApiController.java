@@ -16,4 +16,10 @@ public class BaseApiController {
         return "hello world!";
     }
 
+    @RequestMapping(value = "/send", method = RequestMethod.POST)
+    public Object send(){
+
+        return "send success";
+    }
+
 }
