@@ -15,6 +15,7 @@
 		<module>bootj-service</module>
         <module>cloud-server</module>
         <module>base-api</module>
+        <module>gateway-service</module>
     </modules>
 	<packaging>pom</packaging>
 
