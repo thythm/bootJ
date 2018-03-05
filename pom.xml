@@ -16,6 +16,7 @@
         <module>cloud-server</module>
         <module>base-api</module>
         <module>gateway-service</module>
+        <module>java-core</module>
     </modules>
 	<packaging>pom</packaging>
 
