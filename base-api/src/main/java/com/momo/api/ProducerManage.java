@@ -15,10 +15,14 @@ public class ProducerManage {
     private AmqpTemplate rabbitTemplate;
 
     public void publishDirect(){
+
         for (int i = 0; i < 5; i++) {
             User user = new User("momo" + i);
             System.out.println(Thread.currentThread().getName() + " Sender1 : " +user);
-            this.rabbitTemplate.convertAndSend("user", user);
+            this.rabbitTemplate.convertAndSend("user", user, (msg) -> {
+                msg.getMessageProperties();
+                return msg;
+            });
         }
     }
 
